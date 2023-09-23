@@ -4,6 +4,7 @@
   roles:
     - role: apt
       tags: apt
+    - role: snap
+      tags: snap
     - role: docker
       tags: docker
-
