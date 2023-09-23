@@ -1,0 +1,9 @@
+---
+- name: install package with snap
+  become: yes
+  community.general.snap:
+    name: "{{ item }}"
+    classic: yes
+    state: present
+  with_items: "{{  snap_list  }}"
+  
