@@ -19,6 +19,15 @@
       - software-properties-common
     state: present
 
+- name: DockerリポジトリのGPGキー格納のためのkeyringsフォルダを作成します
+  become: yes
+  file:
+    path: "/etc/apt/keyrings"
+    state: directory
+    owner: "root"
+    group: "root"
+    mode: "755"
+
 - name: DockerリポジトリのGPGキーをシステムに追加します
   become: yes
   get_url:
