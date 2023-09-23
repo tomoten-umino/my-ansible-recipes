@@ -1,0 +1,4 @@
+---
+sample_services_list:
+  - cron
+  - ufw

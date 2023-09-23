@@ -1,0 +1,43 @@
+---
+# This recipe is available at the following URL
+# https://note.com/shift_tech/n/n880f71e8e03b
+- name: apt updateを実行します
+  become: yes
+  apt:
+    update_cache: yes
+
+- name: Dockerのインストールに必要なパッケージをインストールします
+  become: yes
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+    state: present
+
+- name: DockerリポジトリのGPGキーをシステムに追加します
+  become: yes
+  ansible.builtin.apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: DockerリポジトリをAPTソースに追加します
+  become: yes
+  ansible.builtin.apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+    state: present
+
+- name: apt updateを実行します
+  become: yes
+  apt:
+    update_cache: yes
+
+- name: Dockerをインストールします
+  become: yes
+  apt:
+    name: docker-ce
+  notify: 
+    - add_user_to_docker_group
+    - restart_docker_daemon
+  changed_when: yes

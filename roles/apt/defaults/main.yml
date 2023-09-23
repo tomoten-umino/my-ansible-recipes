@@ -1,0 +1,7 @@
+---
+apt_list:
+  - tree
+  - curl
+  - wget
+  - nodejs
+  - npm

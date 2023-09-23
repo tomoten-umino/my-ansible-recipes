@@ -1,0 +1,9 @@
+---
+- name: test
+  hosts: local
+  roles:
+    - role: apt
+      tags: apt
+    - role: docker
+      tags: docker
+
