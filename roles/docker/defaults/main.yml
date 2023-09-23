@@ -1,0 +1,9 @@
+---
+# 2023/9/24 docker recipe is modified. see https://qiita.com/alkshmir/items/9b1c0cdef06eb327c07d
+deb_architecture: {
+  "armv6l": "armhf",
+  "armv7l": "armhf",
+  "aarch64": "arm64",
+  "x86_64": "amd64",
+  "i386": "i386"
+}
