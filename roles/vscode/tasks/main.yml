@@ -28,7 +28,7 @@
   become: yes
   ansible.builtin.apt_repository:
     repo: "deb [arch={{ deb_architecture[ansible_architecture] }} signed-by=/etc/apt/keyrings/package.microsoft.gpg] https://packages.microsoft.com/repos/code stable main"
-    filename: vscode.list
+    filename: vscode
     state: present
 
 - name: apt updateを実行します
@@ -41,16 +41,3 @@
   ansible.builtin.apt:
     name: code
   changed_when: yes
-
-- name: listファイル書き換えられるのでmvされたlistファイルを削除します
-  become: yes
-  ansible.builtin.file:
-    path: /etc/apt/sources.list.d/vscode.list.list
-    state: absent
-
-- name: VS CodeリポジトリをAPTソースに追加し直します
-  become: yes
-  ansible.builtin.apt_repository:
-    repo: "deb [arch={{ deb_architecture[ansible_architecture] }} signed-by=/etc/apt/keyrings/package.microsoft.gpg] https://packages.microsoft.com/repos/code stable main"
-    filename: vscode.list
-    state: present

@@ -21,13 +21,8 @@
   become: yes
   ansible.builtin.apt_repository:
     repo: "deb [signed-by=/etc/apt/keyrings/jfrog.gpg] https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib"
+    filename: jfrog-cli
     state: present
-
-- name: Autoで追加されたlistファイルを削除します
-  become: yes
-  ansible.builtin.file:
-    path: /etc/apt/sources.list.d/jfrog-cli.list
-    state: absent
 
 - name: apt updateを実行します
   become: yes
