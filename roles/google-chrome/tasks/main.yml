@@ -26,7 +26,7 @@
 - name: Autoで追加されたlistファイルを削除します
   become: yes
   ansible.builtin.file:
-    path: /etc/apt/source.list.d/google-chrome.list
+    path: /etc/apt/sources.list.d/google-chrome.list
     state: absent
 
 - name: apt updateを実行します
