@@ -11,4 +11,7 @@ apt_list:
   - make
   - openssh-server
   - libnss3-tools
+  - pass
+  - python3-pip
+  - network-manager-openconnect-gnome
   

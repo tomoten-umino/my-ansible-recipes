@@ -12,3 +12,5 @@
       tags: docker
     - role: jfrog-cli
       tags: jfrog-cli
+    - role: gantsign.git_credential_manager
+      tags: git_credential_manager
