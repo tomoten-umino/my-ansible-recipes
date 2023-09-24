@@ -14,4 +14,11 @@ apt_list:
   - pass
   - python3-pip
   - network-manager-openconnect-gnome
+  - apt-transport-https
+  - ca-certificates
+  - gnupg
+  - gnupg-agent
+  - lsb-release
+  - software-properties-common
+  - pulseaudio-utils
   
