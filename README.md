@@ -21,30 +21,48 @@ This repository is a sample ansible recipes for ubuntu setup.
 
 ```bash
 my-ansible-recipes
+├── License
 ├── README.md
-├── ansible.cfg
+├── collections
+│   └── requirements.yml
 ├── inventories
-│   └── local
-│       ├── group_vars
-│       │   └── local.yml
-│       └── hosts
+│   └── local
+│       ├── group_vars
+│       │   └── local.yml
+│       └── hosts
 ├── roles
-│   ├── apt
-│   │   ├── defaults
-│   │   │   └── main.yml
-│   │   └── tasks
-│   │       └── main.yml
-│   ├── docker
-│   │   ├── defaults
-│   │   ├── handlers
-│   │   │   └── main.yml
-│   │   └── tasks
-│   │       └── main.yml
-│   └── sample
-│       ├── defaults
-│       │   └── main.yml
-│       └── tasks
-│           └── main.yml
+│   ├── apt
+│   │   ├── defaults
+│   │   │   └── main.yml
+│   │   └── tasks
+│   │       └── main.yml
+│   ├── docker
+│   │   ├── defaults
+│   │   │   └── main.yml
+│   │   ├── handlers
+│   │   │   └── main.yml
+│   │   └── tasks
+│   │       └── main.yml
+│   ├── google-chrome
+│   │   ├── defaults
+│   │   │   └── main.yml
+│   │   └── tasks
+│   │       └── main.yml
+│   ├── jfrog-cli
+│   │   ├── defaults
+│   │   │   └── main.yml
+│   │   └── tasks
+│   │       └── main.yml
+│   ├── sample
+│   │   ├── defaults
+│   │   │   └── main.yml
+│   │   └── tasks
+│   │       └── main.yml
+│   └── snap
+│       ├── defaults
+│       │   └── main.yml
+│       └── tasks
+│           └── main.yml
 └── site.yml
 ```
 
