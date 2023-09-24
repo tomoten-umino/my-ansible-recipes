@@ -10,6 +10,8 @@
       tags: google-chrome
     - role: docker
       tags: docker
+    - role: vscode
+      tags: vscode
     - role: jfrog-cli
       tags: jfrog-cli
     - role: gantsign.git_credential_manager
