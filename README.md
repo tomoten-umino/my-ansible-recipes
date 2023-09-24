@@ -13,7 +13,8 @@ This repository is a sample ansible recipes for ubuntu setup.
 ## Require
 
 - This recipe requires ansible version 2.12 or higher.
-
+- This recipe uses some community collection or roles published in Ansible Galaxy.
+    - See collections/requirements.yml and roles/requirements.yml
 
 ## Usage
 
@@ -70,6 +71,15 @@ my-ansible-recipes
 - The install recipes contain in "roles". 
     - "sample" is a task sample. This recipe isn't called in the main playbook.
 - "site.yml" is the main playbook file.
+
+### Prepare
+
+- Install required collections and roles with using following command.
+
+```bash
+$ ansible-galaxy install -r roles/requirements.yml 
+$ ansible-galaxy install -r collections/requirements.yml 
+```
 
 ### Command
 
