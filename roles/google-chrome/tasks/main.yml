@@ -17,12 +17,17 @@
   become: yes
   ansible.builtin.shell: wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /etc/apt/keyrings/google-chrome.gpg
 
-
 - name: Google ChromeリポジトリをAPTソースに追加します
   become: yes
   ansible.builtin.apt_repository:
     repo: "deb [arch={{ deb_architecture[ansible_architecture] }} signed-by=/etc/apt/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main"
     state: present
+
+- name: Autoで追加されたlistファイルを削除します
+  become: yes
+  ansible.builtin.file:
+    path: /etc/apt/source.list.d/google-chrome.list
+    state: absent
 
 - name: apt updateを実行します
   become: yes

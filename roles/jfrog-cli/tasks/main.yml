@@ -17,12 +17,17 @@
   become: yes
   ansible.builtin.shell: wget -qO - https://releases.jfrog.io/artifactory/jfrog-gpg-public/jfrog_public_gpg.key | gpg --dearmor > /etc/apt/keyrings/jfrog.gpg
 
-
 - name: JfrogリポジトリをAPTソースに追加します
   become: yes
   ansible.builtin.apt_repository:
     repo: "deb [signed-by=/etc/apt/keyrings/jfrog.gpg] https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib"
     state: present
+
+- name: Autoで追加されたlistファイルを削除します
+  become: yes
+  ansible.builtin.file:
+    path: /etc/apt/source.list.d/jfrog-cli.list
+    state: absent
 
 - name: apt updateを実行します
   become: yes
