@@ -1,6 +1,6 @@
 ---
 - name: enable and start services
-  systemd:
+  ansible.builtin.systemd:
     state: started
     name: "{{ item }}"
   with_items: "{{  sample_services_list  }}"
