@@ -6,5 +6,9 @@
       tags: apt
     - role: snap
       tags: snap
+    - role: google-chrome
+      tags: google-chrome
     - role: docker
       tags: docker
+    - role: jfrog-cli
+      tags: jfrog-cli

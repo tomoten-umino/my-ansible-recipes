@@ -1,0 +1,36 @@
+---
+- name: apt updateを実行します
+  become: yes
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: GPGキー格納のためのkeyringsフォルダを作成します
+  become: yes
+  ansible.builtin.file:
+    path: "/etc/apt/keyrings"
+    state: directory
+    owner: "root"
+    group: "root"
+    mode: "755"
+
+- name: JfrogリポジトリのGPGキーをシステムに追加します
+  become: yes
+  ansible.builtin.shell: wget -qO - https://releases.jfrog.io/artifactory/jfrog-gpg-public/jfrog_public_gpg.key | gpg --dearmor > /etc/apt/keyrings/jfrog.gpg
+
+
+- name: JfrogリポジトリをAPTソースに追加します
+  become: yes
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by=/etc/apt/keyrings/jfrog.gpg] https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib"
+    state: present
+
+- name: apt updateを実行します
+  become: yes
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: jfrog cliをインストールします
+  become: yes
+  ansible.builtin.apt:
+    name: jfrog-cli-v2
+  changed_when: yes

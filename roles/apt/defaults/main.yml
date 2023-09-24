@@ -5,3 +5,10 @@ apt_list:
   - wget
   - nodejs
   - npm
+  - git
+  - git-lfs
+  - vim
+  - make
+  - openssh-server
+  - libnss3-tools
+  
