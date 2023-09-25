@@ -21,49 +21,55 @@ This repository is a sample ansible recipes for ubuntu setup.
 ### Directory structure
 
 ```bash
-my-ansible-recipes
+my-ansible-recipes/
 ├── License
 ├── README.md
 ├── collections
-│   └── requirements.yml
+│   └── requirements.yml
 ├── inventories
-│   └── local
-│       ├── group_vars
-│       │   └── local.yml
-│       └── hosts
+│   └── local
+│       ├── group_vars
+│       │   └── local.yml
+│       └── hosts
 ├── roles
-│   ├── apt
-│   │   ├── defaults
-│   │   │   └── main.yml
-│   │   └── tasks
-│   │       └── main.yml
-│   ├── docker
-│   │   ├── defaults
-│   │   │   └── main.yml
-│   │   ├── handlers
-│   │   │   └── main.yml
-│   │   └── tasks
-│   │       └── main.yml
-│   ├── google-chrome
-│   │   ├── defaults
-│   │   │   └── main.yml
-│   │   └── tasks
-│   │       └── main.yml
-│   ├── jfrog-cli
-│   │   ├── defaults
-│   │   │   └── main.yml
-│   │   └── tasks
-│   │       └── main.yml
-│   ├── sample
-│   │   ├── defaults
-│   │   │   └── main.yml
-│   │   └── tasks
-│   │       └── main.yml
-│   └── snap
-│       ├── defaults
-│       │   └── main.yml
-│       └── tasks
-│           └── main.yml
+│   ├── requirements.yml
+│   ├── apt
+│   │   ├── defaults
+│   │   │   └── main.yml
+│   │   └── tasks
+│   │       └── main.yml
+│   ├── docker
+│   │   ├── defaults
+│   │   │   └── main.yml
+│   │   ├── handlers
+│   │   │   └── main.yml
+│   │   └── tasks
+│   │       └── main.yml
+│   ├── google-chrome
+│   │   ├── defaults
+│   │   │   └── main.yml
+│   │   └── tasks
+│   │       └── main.yml
+│   ├── jfrog-cli
+│   │   ├── defaults
+│   │   │   └── main.yml
+│   │   └── tasks
+│   │       └── main.yml
+│   ├── sample
+│   │   ├── defaults
+│   │   │   └── main.yml
+│   │   └── tasks
+│   │       └── main.yml
+│   ├── snap
+│   │   ├── defaults
+│   │   │   └── main.yml
+│   │   └── tasks
+│   │       └── main.yml
+│   └── vscode
+│       ├── defaults
+│       │   └── main.yml
+│       └── tasks
+│           └── main.yml
 └── site.yml
 ```
 
@@ -74,9 +80,20 @@ my-ansible-recipes
 
 ### Prepare
 
-- Install required collections and roles with using following command.
+- Install ansible, version 2.12 or higher. In the case of Ubuntu, install with the following commands.
 
 ```bash
+$ sudo apt update
+$ sudo apt install --no-install-recommends software-properties-common git 
+$ sudo apt-add-repository --yes --update ppa:ansible/ansible
+$ sudo apt install --no-install-recommends ansible 
+```
+
+- Do "git clone this repository" and install required collections and roles with using following command.
+
+```bash
+$ git clone https://github.com/tomoten-umino/my-ansible-recipes.git
+$ cd my-ansible-recipes
 $ ansible-galaxy install -r roles/requirements.yml 
 $ ansible-galaxy install -r collections/requirements.yml 
 ```
